@@ -1,5 +1,5 @@
 {
-  "name": "My workflow 5",
+  "name": "Workflow do chatbot no N8N",
   "nodes": [
     {
       "parameters": {
@@ -280,7 +280,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d6a3a96f-dad8-4678-8fbd-f1ee04613b51",
+  "versionId": "cdc8f57f-29fc-440a-9a6a-0f1b3d28a8b6",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "7d727c71f9a3a0130ba20d346c7091947987bf900ba94b80e0ca3fd58be334ae"
