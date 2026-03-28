@@ -32,7 +32,7 @@
           "parameters": [
             {
               "name": "appid",
-              "value": "SEU TOKEN API"
+              "value": "OPENWEATHER_API_KEY"
             },
             {
               "name": "q",
