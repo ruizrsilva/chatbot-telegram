@@ -189,4 +189,7 @@ nodes
 
 ## 📄 Licença
 
-MIT — livre para uso e modificação.
+Livre para uso e modificação.
+
+## Exemplo de execução
+https://ibb.co/84TkZZ72
