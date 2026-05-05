@@ -7,7 +7,7 @@
           "assignments": [
             {
               "id": "b6bd8a6b-275a-473a-bbf5-cde8b97fbd52",
-              "name": "chatInput",
+              "name": "queue",
               "value": "={{ $json.message.text .normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").toLowerCase().trim().replace(/,\\s*/g, \",\") }}",
               "type": "string"
             }
@@ -32,11 +32,11 @@
           "parameters": [
             {
               "name": "appid",
-              "value": "OPENWEATHER_API_KEY"
+              "value": "={{ $credentials.openWeatherMapApi.apiKey }}"
             },
             {
               "name": "q",
-              "value": "={{ $json.chatInput }}"
+              "value": "={{ $json.queue }}"
             },
             {
               "name": "lang",
@@ -58,7 +58,13 @@
       ],
       "id": "b108ab59-33c2-4c91-9708-ce95c566d309",
       "name": "HTTP Request",
-      "onError": "continueRegularOutput"
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "OPENWEATHER_CREDENTIAL_ID",
+          "name": "OpenWeather API"
+        }
+      }
     },
     {
       "parameters": {
@@ -97,7 +103,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"mensagem\": \"🌤️ A temperatura na cidade de {{ $json.name }} é de {{ Math.round($json.main.temp) }}°C.\"\n}",
+        "jsonOutput": "={\n  \"mensagem\": \"{{ ($json.name && $json.main && $json.main.temp !== undefined) ? '🌤️ A temperatura na cidade de ' + $json.name + ' é de ' + Math.round($json.main.temp) + '°C.' : '⚠️ Resposta incompleta da API. Tente novamente.' }}\"\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.set",
